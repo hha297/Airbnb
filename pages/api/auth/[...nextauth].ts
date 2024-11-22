@@ -3,6 +3,7 @@ import NextAuth, { AuthOptions } from 'next-auth';
 import prisma from '@/app/libs/prismadb';
 import GithubProvider from 'next-auth/providers/github';
 import GoogleProvider from 'next-auth/providers/google';
+
 import CredentialsProvider from 'next-auth/providers/credentials';
 import bcrypt from 'bcrypt';
 
@@ -17,6 +18,7 @@ export const authOptions: AuthOptions = {
                         clientId: process.env.GOOGLE_CLIENT_ID as string,
                         clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
                 }),
+
                 CredentialsProvider({
                         name: 'Credentials',
                         credentials: {
@@ -40,6 +42,7 @@ export const authOptions: AuthOptions = {
                         },
                 }),
         ],
+
         pages: {
                 signIn: '/',
         },

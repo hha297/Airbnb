@@ -1,5 +1,5 @@
 'use client';
-import axios from 'axios';
+
 import { AiFillGithub } from 'react-icons/ai';
 import { signIn } from 'next-auth/react';
 import { useCallback, useState } from 'react';
@@ -62,8 +62,8 @@ const LoginModal = () => {
         const footerContent = (
                 <div className="flex flex-col gap-4 mt-3">
                         <hr />
-                        <Button outline label="Continue with Google" icon={FaGoogle} onClick={() => {}} />
-                        <Button outline label="Continue with Github" icon={AiFillGithub} onClick={() => {}} />
+                        <Button outline label="Continue with Google" icon={FaGoogle} onClick={() => signIn('google')} />
+                        <Button outline label="Continue with Github" icon={AiFillGithub} onClick={() => signIn('github')} />
                         <div className="flex flex-row items-center justify-center gap-2 mt-2">
                                 <div>Already have an account?</div>
                                 <div className="text-rose-500 hover:underline cursor-pointer" onClick={registerModal.onClose}>

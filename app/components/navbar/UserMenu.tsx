@@ -12,6 +12,7 @@ interface UserMenuProps {
         currentUser?: User | null;
 }
 const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
+        console.log(currentUser);
         const registerModal = useRegisterModal();
         const loginModal = useLoginModal();
         const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +29,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                                 >
                                         <AiOutlineMenu />
                                         <div className="hidden md:block">
-                                                <Avatar />
+                                                <Avatar src={currentUser?.image || '/placeholder.png'} />
                                         </div>
                                 </div>
                         </div>
@@ -43,7 +44,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
                                                                 <MenuItem onClick={() => {}} label="My Properties" />
                                                                 <MenuItem onClick={() => {}} label="Airbnb my home" />
                                                                 <hr />
-                                                                <MenuItem onClick={() => signOut()} label="Sign Out" />
+                                                                <MenuItem onClick={() => signOut()} label="Sign Out" className="text-red-500" />
                                                         </div>
                                                 ) : (
                                                         <div>
