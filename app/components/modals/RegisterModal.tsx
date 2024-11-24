@@ -14,8 +14,11 @@ import Button from '../Button';
 import { FaGoogle } from 'react-icons/fa';
 import { signIn } from 'next-auth/react';
 
+import useLoginModal from '@/app/hooks/useLoginModal';
+
 const RegisterModal = () => {
         const registerModal = useRegisterModal();
+        const loginModal = useLoginModal();
         const [isLoading, setIsLoading] = useState(false);
         const {
                 register,
@@ -41,6 +44,12 @@ const RegisterModal = () => {
                                 setIsLoading(false);
                         });
         };
+
+        const toggle = useCallback(() => {
+                registerModal.onClose();
+                loginModal.onOpen();
+        }, [loginModal, registerModal]);
+
         const bodyContent = (
                 <div className="flex flex-col gap-4">
                         <Heading title="Welcome to Airbnb" subtitle="Create an account" center />
@@ -57,7 +66,7 @@ const RegisterModal = () => {
                         <Button outline label="Continue with Github" icon={AiFillGithub} onClick={() => signIn('github')} />
                         <div className="flex flex-row items-center justify-center gap-2 mt-2">
                                 <div>Already have an account?</div>
-                                <div className="text-rose-500 hover:underline cursor-pointer" onClick={registerModal.onClose}>
+                                <div className="text-rose-500 hover:underline cursor-pointer" onClick={toggle}>
                                         Log in here
                                 </div>
                         </div>
