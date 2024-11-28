@@ -1,5 +1,28 @@
-import Image from "next/image";
+import Image from 'next/image';
+import Container from './components/Container';
+import EmptyState from './components/EmptyState';
+import getListings from './actions/getListings';
+import ListingCard from './components/listings/ListingCard';
+import getCurrentUser from './actions/getCurrentUser';
 
-export default function Home() {
-  return <div className="text-3xl">Hello</div>;
+export default async function Home() {
+        const listing = await getListings();
+        const currentUser = getCurrentUser();
+
+        if (listing.length === 0) {
+                return (
+                        <div className="flex items-center justify-center h-full w-full text-neutral-500">
+                                <EmptyState showReset />
+                        </div>
+                );
+        }
+        return (
+                <Container>
+                        <div className="pt-24 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-8">
+                                {listing.map((listing) => (
+                                        <ListingCard key={listing.id} data={listing} currentUser={currentUser} />
+                                ))}
+                        </div>
+                </Container>
+        );
 }
