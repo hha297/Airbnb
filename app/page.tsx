@@ -7,7 +7,7 @@ import getCurrentUser from './actions/getCurrentUser';
 
 export default async function Home() {
         const listing = await getListings();
-        const currentUser = getCurrentUser();
+        const currentUser = await getCurrentUser();
 
         if (listing.length === 0) {
                 return (
