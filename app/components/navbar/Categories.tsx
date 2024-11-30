@@ -86,6 +86,7 @@ export const categories = [
                 description: 'This property is luxurious!',
         },
 ];
+
 const Categories = () => {
         const params = useSearchParams();
         const category = params?.get('category');
