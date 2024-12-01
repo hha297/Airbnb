@@ -11,7 +11,7 @@ interface IParams {
 const ListingPage = async ({ params }: { params: IParams }) => {
         const currentUser = await getCurrentUser();
         const listing = await getListingById(params);
-        console.log(listing);
+
         if (!listing)
                 return (
                         <ClientOnly>

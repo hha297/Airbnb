@@ -19,7 +19,7 @@ export default async function getListingById(params: IParams) {
                 if (!listing) {
                         return null;
                 }
-                console.log(listing.user);
+
                 return {
                         ...listing,
                         createdAt: listing.createdAt.toISOString(),
