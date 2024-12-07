@@ -8,7 +8,7 @@ interface IParams {
         listingId?: string;
 }
 
-export async function POST(request: Request, { params }: { params: IParams }) {
+export default async function POST(request: Request, { params }: { params: IParams }) {
         const currentUser = await getCurrentUser();
 
         if (!currentUser) {
@@ -40,7 +40,7 @@ export async function DELETE(request: Request, { params }: { params: IParams }) 
         const currentUser = await getCurrentUser();
 
         if (!currentUser) {
-                return new Response('Unauthorized', { status: 401 });
+                return NextResponse.error();
         }
 
         const { listingId } = params;
