@@ -12,6 +12,8 @@ import useRentModal from '@/app/hooks/useRentModal';
 import { SafeUser } from '@/app/types';
 import { useRouter } from 'next/navigation';
 
+import { TbHomePlus } from 'react-icons/tb';
+
 interface UserMenuProps {
         currentUser?: SafeUser | null;
 }
@@ -34,9 +36,11 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
         return (
                 <div className="relative">
                         <div className="flex flex-row items-center gap-3">
-                                <div className="border-[1px] hidden md:block text-sm font-semibold py-3 px-4 rounded-full hover:shadow-md transition cursor-pointer" onClick={onRent}>
-                                        Airbnb your home
+                                <div className="flex-row border-[1px] hidden md:flex text-sm font-semibold py-3 px-4 rounded-full hover:shadow-md transition cursor-pointer" onClick={onRent}>
+                                        <TbHomePlus size={18} className="text-rose-500 mr-2 " />
+                                        <div>Airbnb your home</div>
                                 </div>
+
                                 <div
                                         onClick={toggleOpen}
                                         className="p-4 md:py-1 md:px-2 border-[1px] border-neutral-200 flex flex-row items-center gap-3 rounded-full cursor-pointer hover:shadow-md transition"
