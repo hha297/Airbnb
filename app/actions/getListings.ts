@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import prisma from '@/app/libs/prismadb';
 
 export interface IListingsParams {
@@ -13,7 +14,7 @@ export interface IListingsParams {
 export default async function getListings(params: IListingsParams) {
         try {
                 const { userId, guestCount, roomCount, bathroomCount, startDate, endDate, locationValue, category } = params;
-                let query: any = {};
+                const query: any = {};
 
                 if (userId) {
                         query.userId = userId;
@@ -70,7 +71,7 @@ export default async function getListings(params: IListingsParams) {
                         createdAt: listing.createdAt.toISOString(),
                 }));
                 return safeListings;
-        } catch (error: any) {
+        } catch (error) {
                 throw new Error(error);
         }
 }

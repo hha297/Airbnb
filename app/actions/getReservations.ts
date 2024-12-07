@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable prefer-const */
 import prisma from '@/app/libs/prismadb';
 
 interface IParams {
@@ -10,7 +12,7 @@ export default async function getReservations(params: IParams) {
         try {
                 const { listingId, userId, authorId } = params;
 
-                const query: any = {};
+                let query: any = {};
 
                 if (listingId) {
                         query.listingId = listingId;
@@ -46,7 +48,7 @@ export default async function getReservations(params: IParams) {
                 }));
 
                 return safeReservations;
-        } catch (error: any) {
+        } catch (error) {
                 throw new Error(error);
         }
 }

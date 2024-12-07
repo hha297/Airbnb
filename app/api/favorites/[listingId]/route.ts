@@ -1,3 +1,4 @@
+/* eslint-disable prefer-const */
 import { NextResponse } from 'next/server';
 
 import getCurrentUser from '@/app/actions/getCurrentUser';

@@ -22,7 +22,7 @@ export default async function getFavoriteListings() {
                         createdAt: favorite.createdAt.toISOString(),
                 }));
                 return safeFavorites;
-        } catch (error: any) {
+        } catch (error) {
                 throw new Error(error);
         }
 }

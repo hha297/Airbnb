@@ -1,3 +1,5 @@
+/* eslint-disable no-var */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { CldUploadWidget } from 'next-cloudinary';
 import Image from 'next/image';
 import React, { useCallback } from 'react';
