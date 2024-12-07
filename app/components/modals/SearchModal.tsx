@@ -140,6 +140,7 @@ const SearchModal = () => {
                         onSubmit={onSubmit}
                         title="Filters"
                         actionLabel={actionLabel}
+                        secondaryAction={step === STEPS.LOCATION ? undefined : onBack}
                         secondaryActionLabel={secondaryActionLabel}
                         body={bodyContent}
                 />

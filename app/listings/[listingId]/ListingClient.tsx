@@ -2,7 +2,7 @@
 
 import Container from '@/app/components/Container';
 import { SafeListing, SafeReservation, SafeUser } from '@/app/types';
-import { Reservation } from '@prisma/client';
+
 import React, { useCallback, useEffect, useMemo, useState } from 'react';
 
 import { categories } from '@/app/components/navbar/Categories';

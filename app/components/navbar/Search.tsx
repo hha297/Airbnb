@@ -16,8 +16,6 @@ const Search = () => {
         const startDate = params?.get('startDate');
         const endDate = params?.get('endDate');
         const guestCount = params?.get('guestCount');
-        const roomCount = params?.get('roomCount');
-        const bathroomCount = params?.get('bathroomCount');
 
         const locationLabel = useMemo(() => {
                 if (locationValue) {
